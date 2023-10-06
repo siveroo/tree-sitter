@@ -1,8 +1,12 @@
 const std = @import("std");
 
 pub fn build(b: *std.Build) void {
+    _ = b.addModule("treesitter", .{
+        .source_file = .{ .path = "treesitter.zig" },
+    });
+
     var lib = b.addStaticLibrary(.{
-        .name = "treesitter",
+        .name = "tree-sitter",
         .target = b.standardTargetOptions(.{}),
         .optimize = b.standardOptimizeOption(.{}),
     });

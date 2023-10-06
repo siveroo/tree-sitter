@@ -1,0 +1,4 @@
+.{
+    .name = "treesitter",
+    .version = "0.20.8",
+}
