@@ -5,6 +5,10 @@ pub fn build(b: *std.Build) void {
         .source_file = .{ .path = "treesitter.zig" },
     });
 
+    _ = b.addModule("highlight", .{
+        .source_file = .{ .path = "highlight.zig" },
+    });
+
     var lib = b.addStaticLibrary(.{
         .name = "tree-sitter",
         .target = b.standardTargetOptions(.{}),
@@ -15,6 +19,7 @@ pub fn build(b: *std.Build) void {
     lib.addCSourceFile(.{ .file = .{ .path = "lib/src/lib.c" }, .flags = &.{} });
     lib.addIncludePath(.{ .path = "lib/include" });
     lib.addIncludePath(.{ .path = "lib/src" });
+    lib.addIncludePath(.{ .path = "highlight/include" });
 
     b.installArtifact(lib);
 }
