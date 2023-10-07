@@ -1,15 +1,6 @@
 const lib = @cImport({
-    //@cInclude("alloc.h");
-    //@cInclude("get_changed_ranges.h");
-    @cInclude("language.h");
-    @cInclude("lexer.h");
-    @cInclude("node.c");
-    @cInclude("parser.c");
-    //@cInclude("query.h");
-    //@cInclude("stack.c");
-    //@cInclude("subtree.c");
-    //@cInclude("tree_cursor.c");
-    //@cInclude("tree.c");
+    @cInclude("tree_sitter/api.h");
+    @cInclude("tree_sitter/parser.h");
 });
 
 pub usingnamespace lib;
